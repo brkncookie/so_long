@@ -1,0 +1,7 @@
+Parser:
+	-implement a parser that parses the given map in a .ber file and check for errors,
+	and store it for further processing.
+	-learn backtracking and implement it to check if there's a valid path for the player to exit.
+Drawer/Handler:
+	-read the minilibx docs.
+

@@ -1,0 +1,7 @@
+-Parser:
+	- read the whole file into a buffer.
+	- split that buffer by \n to obtain a 2D Array.
+	- check if every chain in the 2D Array has the same length, which it should.
+	- check that the map is surrounded by walls.
+	- check that the there at least one collectible and 1 start/exit maximum.
+	- check if there's a valid path for the player to exit.
