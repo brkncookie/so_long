@@ -1,0 +1,5 @@
+Backtracking and Recursion:
+	-https://www.scaler.com/topics/data-structures/recursion-and-backtracking/
+Backtracking example for the rat maze problem:
+	-https://www.geeksforgeeks.org/rat-in-a-maze-backtracking-2/ (with only downward and forward moves)
+	-https://www.tutorialspoint.com/c-program-for-rat-in-a-maze-backtracking-2 (with all moves)
