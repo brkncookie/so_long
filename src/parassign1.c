@@ -6,10 +6,35 @@
 /*   By: mnadir <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/11 15:55:05 by mnadir            #+#    #+#             */
-/*   Updated: 2022/12/11 16:17:17 by mnadir           ###   ########.fr       */
+/*   Updated: 2022/12/12 12:20:35 by mnadir           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "so_long.h"
+
+char	**is_aligned(char **map, size_t *rlen, size_t *clen)
+{
+	size_t	inx;
+
+	while (map && map[0][*clen])
+		(*clen)++;
+	while (map && map[*rlen])
+	{
+		inx = 0;
+		while (map[*rlen][inx])
+			inx++;
+		if (inx == *clen)
+			(*rlen)++;
+		else
+		{
+			inx = 0;
+			while (map[inx])
+				free(map[inx++]);
+			free(map);
+			return (ft_printf("the map is not aligned, yoo stoopid\n"), NULL);
+		}
+	}
+	return (map);
+}
 
 int	elems(char **map)
 {
@@ -87,34 +112,31 @@ char	**gen_sol(size_t rlen, size_t clen)
 	return (sol);
 }
 
-int	validpath(t_cord cord)
+int	validpath(t_cord *cord, t_cord tmp)
 {
-	t_cord	tmp;
-
-	tmp = cord;
-	if ((cord.rp == cord.re) && (cord.cp == cord.ce))
-		return (cord.sol[cord.rp][cord.cp] = '1', 0);
-	if (cord.rp >= 0 && cord.cp >= 0 && \
-			cord.rp < (int)cord.rlen && cord.cp < (int)cord.clen && \
-			cord.sol[cord.rp][cord.cp] == 0 && cord.map[cord.rp][cord.cp] != 49)
+	if ((cord->rp == cord->re) && (cord->cp == cord->ce))
+		return (cord->sol[cord->rp][cord->cp] = '1', 0);
+	if (cord->rp >= 0 && cord->cp >= 0 && \
+		cord->rp < (int)cord->rlen && cord->cp < (int)cord->clen && \
+		!cord->sol[cord->rp][cord->cp] && cord->map[cord->rp][cord->cp] != 49)
 	{
-		cord.sol[cord.rp][cord.cp] = '1';
+		cord->sol[cord->rp][cord->cp] = '1';
 		tmp.rp++;
-		if (validpath(tmp) > -1)
+		if (validpath(&tmp, tmp) > -1)
 			return (0);
 		tmp.rp--;
 		tmp.cp++;
-		if (validpath(tmp) > -1)
+		if (validpath(&tmp, tmp) > -1)
 			return (0);
 		tmp.cp--;
 		tmp.rp--;
-		if (validpath(tmp) > -1)
+		if (validpath(&tmp, tmp) > -1)
 			return (0);
 		tmp.rp++;
 		tmp.cp--;
-		if (validpath(tmp) > -1)
+		if (validpath(&tmp, tmp) > -1)
 			return (0);
-		return (cord.sol[cord.rp][cord.cp] = 0, -1);
+		return (cord->sol[cord->rp][cord->cp] = 0, -1);
 	}
 	return (-1);
 }
