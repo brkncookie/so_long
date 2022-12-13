@@ -2,7 +2,14 @@
 	- verify the .ber file extension.
 	- read the whole file into a buffer.
 	- split that buffer by \n to obtain a 2D Array.
+	- check that the only provided chars are used within the map.
 	- check if every chain in the 2D Array has the same length, which it should.
 	- check that the map is surrounded by walls.
 	- check that the there is at least one collectible and 1 start/exit maximum.
 	- check if there's a valid path for the player to exit.
+Drawer/Event Handler:
+	- create a window and draw into it the images on thier right locations based on the 2D Array/Map.
+	- create another drawer function that only update the P postition on the window when an event is triggered.
+	- create an event handler that update the 2D Array/Map whenever a keyboard button is pressed (W S A D) and then calls
+	  the created function in step 2.
+

@@ -4,4 +4,6 @@ Parser:
 	-learn backtracking and implement it to check if there's a valid path for the player to exit.
 Drawer/Handler:
 	-read the minilibx docs.
+	-draw a window with images and update the Player image whenever a event is triggered.
+
 
