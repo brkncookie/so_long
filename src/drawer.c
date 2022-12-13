@@ -6,7 +6,7 @@
 /*   By: mnadir <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/13 12:02:15 by mnadir            #+#    #+#             */
-/*   Updated: 2022/12/13 15:33:24 by mnadir           ###   ########.fr       */
+/*   Updated: 2022/12/13 15:46:36 by mnadir           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,15 +40,15 @@ t_drw	*draw(t_cord *cord)
 		while(cord->map[i][j])
 		{
 			if(cord->map[i][j] == '1')
-				mlx_put_image_to_window(drw->mlx, drw->win, drw->wal, i * drw->dems, j * drw->dems);
+				mlx_put_image_to_window(drw->mlx, drw->win, drw->wal, j * drw->dems, i * drw->dems);
 			else if(cord->map[i][j] == '0')
-				mlx_put_image_to_window(drw->mlx, drw->win, drw->spc, i * drw->dems, j * drw->dems);
+				mlx_put_image_to_window(drw->mlx, drw->win, drw->spc, j * drw->dems, i * drw->dems);
 			else if(cord->map[i][j] == 'P')
-				mlx_put_image_to_window(drw->mlx, drw->win, drw->plr,  i * drw->dems, j * drw->dems);
+				mlx_put_image_to_window(drw->mlx, drw->win, drw->plr,  j * drw->dems, i * drw->dems);
 			else if(cord->map[i][j] == 'C')
-				mlx_put_image_to_window(drw->mlx, drw->win, drw->clb, i * drw->dems, j * drw->dems);
+				mlx_put_image_to_window(drw->mlx, drw->win, drw->clb, j * drw->dems, i * drw->dems);
 			else if(cord->map[i][j] == 'E')
-				mlx_put_image_to_window(drw->mlx, drw->win, drw->ext, i * drw->dems, j * drw->dems);
+				mlx_put_image_to_window(drw->mlx, drw->win, drw->ext, j * drw->dems, i * drw->dems);
 			j++;
 		}
 		i++;
