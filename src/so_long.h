@@ -6,7 +6,7 @@
 /*   By: mnadir <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/10 16:11:41 by mnadir            #+#    #+#             */
-/*   Updated: 2022/12/13 14:55:46 by mnadir           ###   ########.fr       */
+/*   Updated: 2022/12/14 11:42:28 by mnadir           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,14 @@
 # include <mlx.h>
 # include "ft_printf/ft_printf.h"
 # include "get_next_line.h"
+
+# define X_EVENT_KEY_PRESS		2
+# define X_EVENT_DESTROY		17
+# define KEY_ESC				53
+# define KEY_A					0
+# define KEY_S					1
+# define KEY_D					2
+# define KEY_W					13
 
 typedef struct s_cord
 {
@@ -36,6 +44,7 @@ typedef struct s_drw
 	int		cp;
 	int		re;
 	int		ce;
+	char	**map;
 	void	*mlx;
 	void	*win;
 	void	*wal;
