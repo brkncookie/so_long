@@ -6,7 +6,7 @@
 /*   By: mnadir <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/10 16:11:41 by mnadir            #+#    #+#             */
-/*   Updated: 2022/12/14 11:42:28 by mnadir           ###   ########.fr       */
+/*   Updated: 2022/12/15 12:26:45 by mnadir           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,11 @@
 # define KEY_S					1
 # define KEY_D					2
 # define KEY_W					13
+# define WAL					"imgs/wal.xpm"
+# define SPC					"imgs/spc.xpm"
+# define PLR					"imgs/plr.xpm"
+# define EXT					"imgs/ext.xpm"
+# define CLB					"imgs/clb.xpm"
 
 typedef struct s_cord
 {
@@ -33,6 +38,7 @@ typedef struct s_cord
 	int		cp;
 	int		re;
 	int		ce;
+	int		cn;
 	size_t	rlen;
 	size_t	clen;
 	char	**map;
@@ -40,11 +46,7 @@ typedef struct s_cord
 }	t_cord;
 typedef struct s_drw
 {
-	int		rp;
-	int		cp;
-	int		re;
-	int		ce;
-	char	**map;
+	t_cord	*cord;
 	void	*mlx;
 	void	*win;
 	void	*wal;
@@ -56,10 +58,13 @@ typedef struct s_drw
 
 }	t_drw;
 t_cord	*parassign(char *file);
+t_drw	*draw(t_cord *cord);
+int		validpath(t_cord *cord, t_cord tmp);
 void	pe_pos(t_cord *cord);
 char	**gen_sol(size_t rlen, size_t clen);
 char	**is_aligned(char **map, size_t *rlen, size_t *clen);
-int		validpath(t_cord *cord, t_cord tmp);
 int		elems(char **map);
-t_drw	*draw(t_cord *cord);
+void	frall(t_cord *cord, t_drw *drw);
+int		key(int butt, void *parm);
+int		destroy(void *parm);
 #endif

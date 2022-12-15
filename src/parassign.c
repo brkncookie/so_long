@@ -6,7 +6,7 @@
 /*   By: mnadir <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/11 12:21:42 by mnadir            #+#    #+#             */
-/*   Updated: 2022/12/12 12:18:33 by mnadir           ###   ########.fr       */
+/*   Updated: 2022/12/15 10:52:12 by mnadir           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,14 +82,13 @@ int	walls(char **map, size_t rlen, size_t clen)
 	return (0);
 }
 
-int	pce(char **map, int i, int j)
+int	pce(char **map, int i, int j, int *c)
 {
 	int	p;
-	int	c;
 	int	e;
 
 	p = 0;
-	c = 0;
+	*c = 0;
 	e = 0;
 	while (map[i])
 	{
@@ -101,12 +100,12 @@ int	pce(char **map, int i, int j)
 			else if (map[i][j] == 'E')
 				e++;
 			else if (map[i][j] == 'C')
-				c++;
+				(*c)++;
 			j++;
 		}
 		i++;
 	}
-	if (p != 1 || c == 0 || e != 1)
+	if (p != 1 || *c == 0 || e != 1)
 		return (-1);
 	return (0);
 }
@@ -121,21 +120,21 @@ t_cord	*parassign(char *file)
 	cord->rlen = 0;
 	cord->clen = 0;
 	if (fext(file) < 0)
-		return (ft_printf("file extenstion is not '.ber', yoo stoopid\n"), NULL);
+		return (ft_printf("file extenstion is not '.ber'\n"), free(cord), NULL);
 	cord->map = get_2d(file, &(cord->rlen), &(cord->clen));
 	if (!(cord->map))
-		return (NULL);
+		return (free(cord), NULL);
 	if (elems(cord->map) < 0)
-		return (ft_printf("use only the provided chars, yoo stoopid\n"), NULL);
+		return (ft_printf("use the given chars\n"), frall(cord, NULL), NULL);
 	if (walls(cord->map, cord->rlen, cord->clen) < 0)
-		return (ft_printf("surround the map with walls, yoo stoopid\n"), NULL);
-	if (pce(cord->map, 0, 0) < 0)
-		return (ft_printf("1 C min and 1 P/E max, yoo stoopid\n"), NULL);
+		return (ft_printf("surround  with walls\n"), frall(cord, NULL), NULL);
+	if (pce(cord->map, 0, 0, &(cord->cn)) < 0)
+		return (ft_printf("1 C min and 1 P/E max\n"), frall(cord, NULL), NULL);
 	pe_pos(cord);
 	cord->sol = gen_sol(cord->rlen, cord->clen);
 	if (!(cord->sol))
-		return (NULL);
+		return (frall(cord, NULL), NULL);
 	if (validpath(cord, *cord) < 0)
-		return (ft_printf("no valid path from P to E, yoo stoopid\n"), NULL);
+		return (ft_printf("no valid path from P2E\n"), frall(cord, NULL), NULL);
 	return (cord);
 }
