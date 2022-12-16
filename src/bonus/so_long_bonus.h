@@ -6,18 +6,18 @@
 /*   By: mnadir <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/10 16:11:41 by mnadir            #+#    #+#             */
-/*   Updated: 2022/12/16 09:19:48 by mnadir           ###   ########.fr       */
+/*   Updated: 2022/12/16 12:11:50 by mnadir           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SO_LONG_H
-# define SO_LONG_H
+#ifndef SO_LONG_BONUS_H
+# define SO_LONG_BONUS_H
 # include <stdio.h>
 # include <fcntl.h>
 # include <sys/errno.h>
 # include <mlx.h>
-# include "ft_printf/ft_printf.h"
-# include "get_next_line.h"
+# include "../ft_printf/ft_printf.h"
+# include "../get_next_line.h"
 
 # define X_EVENT_KEY_PRESS		2
 # define X_EVENT_DESTROY		17
@@ -26,11 +26,12 @@
 # define KEY_S					1
 # define KEY_D					2
 # define KEY_W					13
-# define WAL					"textures/wal.xpm"
-# define SPC					"textures/spc.xpm"
-# define PLR					"textures/plr.xpm"
-# define EXT					"textures/ext.xpm"
-# define CLB					"textures/clb.xpm"
+# define WAL					"../textures/wal.xpm"
+# define SPC					"../textures/spc.xpm"
+# define PLR					"../textures/plr.xpm"
+# define EXT					"../textures/ext.xpm"
+# define ENM					"../textures/enm.xpm"
+# define CLB					"../textures/clb.xpm"
 
 typedef struct s_cord
 {
@@ -51,6 +52,7 @@ typedef struct s_drw
 	void	*win;
 	void	*wal;
 	void	*spc;
+	void	*enm;
 	void	*plr;
 	void	*ext;
 	void	*clb;

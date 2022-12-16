@@ -6,23 +6,27 @@
 /*   By: mnadir <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/15 09:59:58 by mnadir            #+#    #+#             */
-/*   Updated: 2022/12/16 09:34:48 by mnadir           ###   ########.fr       */
+/*   Updated: 2022/12/16 11:42:30 by mnadir           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "so_long.h"
+#include "so_long_bonus.h"
 
 void	pupdate(t_drw *drw, int x, int y)
 {
 	static int	c = 0;
+	char		*str;
 
 	if (x == drw->cord->rp && y == drw->cord->cp)
 		return ;
+	mlx_put_image_to_window(drw->mlx, drw->win, drw->wal, 0, 0);
 	mlx_put_image_to_window(drw->mlx, drw->win, drw->spc, \
 			y * drw->dems, x * drw->dems);
 	mlx_put_image_to_window(drw->mlx, drw->win, drw->plr, \
 			drw->cord->cp * drw->dems, drw->cord->rp * drw->dems);
 	c++;
-	ft_printf("number of movments: %d\n", c);
+	str = ft_itoa(c);
+	mlx_string_put(drw->mlx, drw->win, 0, 0, 0xFFFFFF, str);
+	free(str);
 }
 
 int	key(int butt, void *parm)

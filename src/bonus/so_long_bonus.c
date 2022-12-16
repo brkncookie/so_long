@@ -6,11 +6,11 @@
 /*   By: mnadir <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/11 12:39:10 by mnadir            #+#    #+#             */
-/*   Updated: 2022/12/16 11:18:39 by mnadir           ###   ########.fr       */
+/*   Updated: 2022/12/15 12:14:38 by mnadir           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "so_long_bonus.h"
 
 int	main(int argc, char **argv)
 {
@@ -30,5 +30,6 @@ int	main(int argc, char **argv)
 			mlx_loop(drw->mlx);
 		}
 	}
+	system("leaks a.out");
 	return (0);
 }
