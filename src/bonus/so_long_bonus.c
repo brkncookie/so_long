@@ -6,7 +6,7 @@
 /*   By: mnadir <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/11 12:39:10 by mnadir            #+#    #+#             */
-/*   Updated: 2022/12/15 12:14:38 by mnadir           ###   ########.fr       */
+/*   Updated: 2022/12/17 12:20:01 by mnadir           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,11 +25,12 @@ int	main(int argc, char **argv)
 		drw = draw(cord);
 		if (drw)
 		{
+			mlx_loop_hook(drw->mlx, render, drw);
+			mlx_hook(drw->win, X_EVENT_KEY_PRESS, 0, key, drw);
 			mlx_hook(drw->win, X_EVENT_DESTROY, 0, destroy, drw);
 			mlx_key_hook(drw->win, key, drw);
 			mlx_loop(drw->mlx);
 		}
 	}
-	system("leaks a.out");
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: mnadir <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/10 16:11:41 by mnadir            #+#    #+#             */
-/*   Updated: 2022/12/16 12:11:50 by mnadir           ###   ########.fr       */
+/*   Updated: 2022/12/17 12:47:35 by mnadir           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,12 @@
 # define SPC					"../textures/spc.xpm"
 # define PLR					"../textures/plr.xpm"
 # define EXT					"../textures/ext.xpm"
+# define EXT2					"../textures/ext2.xpm"
+# define EXT3					"../textures/ext3.xpm"
+# define EXT4					"../textures/ext4.xpm"
+# define EXT5					"../textures/ext5.xpm"
+# define EXT6					"../textures/ext6.xpm"
+# define EXT7					"../textures/ext7.xpm"
 # define ENM					"../textures/enm.xpm"
 # define CLB					"../textures/clb.xpm"
 
@@ -55,6 +61,12 @@ typedef struct s_drw
 	void	*enm;
 	void	*plr;
 	void	*ext;
+	void	*ext2;
+	void	*ext3;
+	void	*ext4;
+	void	*ext5;
+	void	*ext6;
+	void	*ext7;
 	void	*clb;
 	int		dems;
 
@@ -69,4 +81,6 @@ int		elems(char **map);
 void	frall(t_cord *cord, t_drw *drw);
 int		key(int butt, void *parm);
 int		destroy(void *parm);
+void	drw_ext(t_drw *drw);
+int		render(t_drw *drw);
 #endif

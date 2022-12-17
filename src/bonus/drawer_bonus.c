@@ -6,7 +6,7 @@
 /*   By: mnadir <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/13 12:02:15 by mnadir            #+#    #+#             */
-/*   Updated: 2022/12/16 15:32:48 by mnadir           ###   ########.fr       */
+/*   Updated: 2022/12/17 12:52:02 by mnadir           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,13 +41,14 @@ t_drw	*drw_init(t_cord *cord)
 	if (!drw->mlx)
 		return (frall(cord, drw), NULL);
 	drw->win = mlx_new_window(drw->mlx, cord->clen * drw->dems, \
-			cord->rlen * drw->dems, "so_long");
+			cord->rlen * drw->dems, "so_long_bonus");
 	if (!drw->win)
 		return (frall(cord, drw), NULL);
 	drw->wal = mlx_xpm_file_to_image(drw->mlx, WAL, &(drw->dems), &(drw->dems));
 	drw->spc = mlx_xpm_file_to_image(drw->mlx, SPC, &(drw->dems), &(drw->dems));
 	drw->plr = mlx_xpm_file_to_image(drw->mlx, PLR, &(drw->dems), &(drw->dems));
 	drw->ext = mlx_xpm_file_to_image(drw->mlx, EXT, &(drw->dems), &(drw->dems));
+	drw_ext(drw);
 	drw->enm = mlx_xpm_file_to_image(drw->mlx, ENM, &(drw->dems), &(drw->dems));
 	drw->clb = mlx_xpm_file_to_image(drw->mlx, CLB, &(drw->dems), &(drw->dems));
 	if (!drw->wal || !drw->spc || !drw->plr \

@@ -1,10 +1,10 @@
-SRCS = ../get_next_line.c ../get_next_line_utils.c parassign1_bonus.c parassign_bonus.c drawer_bonus.c so_long_bonus.c handler_bonus.c
+SRCS = ../get_next_line.c ../get_next_line_utils.c parassign1_bonus.c parassign_bonus.c drawer_bonus.c so_long_bonus.c handler_bonus.c animate.c
 OBJS = ${SRCS:.c=.o}
 NAME = so_long_bonus
 INC = so_long_bonus.h
 LIB = ../ft_printf/libftprintf.a
 CC = cc
-CFLAGS =  -Wall -Wextra -Werror 
+CFLAGS =  -Wall -Wextra -Werror
 XLIB = -lmlx -framework OpenGL -framework AppKit
 RM = rm -vf
 MK =  make --directory=../ft_printf/
@@ -18,7 +18,7 @@ $(NAME): $(OBJS) $(LIB)
 $(LIB):
 	$(MK)
 clean:
-	$(RM) $(OBJS) $(bOBJS) 
+	$(RM) $(OBJS)
 	$(MK) clean
 fclean:
 	$(RM) $(NAME) $(OBJS) 

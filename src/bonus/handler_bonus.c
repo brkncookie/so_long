@@ -6,7 +6,7 @@
 /*   By: mnadir <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/15 09:59:58 by mnadir            #+#    #+#             */
-/*   Updated: 2022/12/16 11:42:30 by mnadir           ###   ########.fr       */
+/*   Updated: 2022/12/17 11:48:22 by mnadir           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "so_long_bonus.h"
@@ -27,6 +27,14 @@ void	pupdate(t_drw *drw, int x, int y)
 	str = ft_itoa(c);
 	mlx_string_put(drw->mlx, drw->win, 0, 0, 0xFFFFFF, str);
 	free(str);
+}
+
+void	suicide(t_drw *drw)
+{
+	if (drw->cord->map[drw->cord->rp][drw->cord->cp] == 'E' && !(drw->cord->cn))
+		(mlx_destroy_window(drw->mlx, drw->win), exit(0));
+	else if (drw->cord->map[drw->cord->rp][drw->cord->cp] == 'e')
+		(mlx_destroy_window(drw->mlx, drw->win), exit(0));
 }
 
 int	key(int butt, void *parm)
@@ -52,8 +60,7 @@ int	key(int butt, void *parm)
 		drw->cord->cn--;
 	if (drw->cord->map[drw->cord->rp][drw->cord->cp] == 'E' && (drw->cord->cn))
 		return (drw->cord->rp = x, drw->cord->cp = y, 0);
-	if (drw->cord->map[drw->cord->rp][drw->cord->cp] == 'E' && !(drw->cord->cn))
-		(mlx_destroy_window(drw->mlx, drw->win), exit(0));
+	suicide(drw);
 	return (drw->cord->map[x][y] = '0', \
 	drw->cord->map[drw->cord->rp][drw->cord->cp] = 'P', pupdate(drw, x, y), 0);
 }
