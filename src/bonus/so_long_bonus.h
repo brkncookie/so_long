@@ -6,7 +6,7 @@
 /*   By: mnadir <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/10 16:11:41 by mnadir            #+#    #+#             */
-/*   Updated: 2022/12/17 12:47:35 by mnadir           ###   ########.fr       */
+/*   Updated: 2022/12/17 14:07:41 by mnadir           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,7 @@
 # include <sys/errno.h>
 # include <mlx.h>
 # include "../ft_printf/ft_printf.h"
-# include "../get_next_line.h"
-
+# include "../mand/get_next_line.h"
 # define X_EVENT_KEY_PRESS		2
 # define X_EVENT_DESTROY		17
 # define KEY_ESC				53
@@ -26,18 +25,18 @@
 # define KEY_S					1
 # define KEY_D					2
 # define KEY_W					13
-# define WAL					"../textures/wal.xpm"
-# define SPC					"../textures/spc.xpm"
-# define PLR					"../textures/plr.xpm"
-# define EXT					"../textures/ext.xpm"
-# define EXT2					"../textures/ext2.xpm"
-# define EXT3					"../textures/ext3.xpm"
-# define EXT4					"../textures/ext4.xpm"
-# define EXT5					"../textures/ext5.xpm"
-# define EXT6					"../textures/ext6.xpm"
-# define EXT7					"../textures/ext7.xpm"
-# define ENM					"../textures/enm.xpm"
-# define CLB					"../textures/clb.xpm"
+# define WAL					"textures/wal.xpm"
+# define SPC					"textures/spc.xpm"
+# define PLR					"textures/plr.xpm"
+# define EXT					"textures/ext.xpm"
+# define EXT2					"textures/ext2.xpm"
+# define EXT3					"textures/ext3.xpm"
+# define EXT4					"textures/ext4.xpm"
+# define EXT5					"textures/ext5.xpm"
+# define EXT6					"textures/ext6.xpm"
+# define EXT7					"textures/ext7.xpm"
+# define ENM					"textures/enm.xpm"
+# define CLB					"textures/clb.xpm"
 
 typedef struct s_cord
 {

@@ -6,7 +6,7 @@
 /*   By: mnadir <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/10 16:11:41 by mnadir            #+#    #+#             */
-/*   Updated: 2022/12/16 09:19:48 by mnadir           ###   ########.fr       */
+/*   Updated: 2022/12/17 14:03:21 by mnadir           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,8 @@
 # include <fcntl.h>
 # include <sys/errno.h>
 # include <mlx.h>
-# include "ft_printf/ft_printf.h"
+# include "../ft_printf/ft_printf.h"
 # include "get_next_line.h"
-
 # define X_EVENT_KEY_PRESS		2
 # define X_EVENT_DESTROY		17
 # define KEY_ESC				53

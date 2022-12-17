@@ -12,17 +12,17 @@ CP = cp -v
 
 all: $(NAME)
 $(NAME): $(LIB) $(OBJS)
-	$(AR)  $(NAME)  $(OBJS)
+	@$(AR)  $(NAME)  $(OBJS)
 %.o: %.c ft_printf.h
-	$(CC) $(CFLAGS) -c -I ./ $< -o $@
+	@$(CC) $(CFLAGS) -c -I ./ $< -o $@
 $(LIB):
-	$(MK) all
-	$(CP) $(LIB) $(NAME)
+	@$(MK) all
+	@$(CP) $(LIB) $(NAME)
 clean:
-	$(RM) $(OBJS) $(bOBJS)
-	$(MK) clean
+	@$(RM) $(OBJS) $(bOBJS)
+	@$(MK) clean
 fclean:
-	$(RM) $(bNAME) $(NAME)  $(OBJS) $(bOBJS)
-	$(MK) fclean
+	@$(RM) $(bNAME) $(NAME)  $(OBJS) $(bOBJS)
+	@$(MK) fclean
 re: fclean all
 .PHONY: fclean all re clean

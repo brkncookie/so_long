@@ -10,14 +10,15 @@ RM = rm -vf
 
 
 $(NAME): $(OBJS)
-	$(AR)   $(NAME) $(OBJS)
+	@$(AR)   $(NAME) $(OBJS)
 %.o: %.c libft.h
-	$(CC) $(CFLAGS) -c -I ./ $< -o $@
+	@$(CC) $(CFLAGS) -c -I ./ $< -o $@
 bonus: $(OBJS) $(bOBJS)
-	$(AR)   $(NAME) $(OBJS) $(bOBJS)
+	@$(AR)   $(NAME) $(OBJS) $(bOBJS)
 all: $(NAME)
 clean:
-	$(RM) $(OBJS) $(bOBJS)
+	@$(RM) $(OBJS) $(bOBJS)
 fclean:
-	$(RM) $(NAME)  $(OBJS) $(bOBJS)
+	@$(RM) $(NAME)  $(OBJS) $(bOBJS)
 re: fclean all
+.PHONY: clean fclean re all
