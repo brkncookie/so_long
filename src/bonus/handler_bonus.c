@@ -6,7 +6,7 @@
 /*   By: mnadir <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/15 09:59:58 by mnadir            #+#    #+#             */
-/*   Updated: 2022/12/17 11:48:22 by mnadir           ###   ########.fr       */
+/*   Updated: 2022/12/18 09:56:35 by mnadir           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "so_long_bonus.h"
@@ -81,7 +81,7 @@ void	frall(t_cord *cord, t_drw *drw)
 		free(cord->map[i++]);
 	free(cord->map);
 	j = 0;
-	while (j < i)
+	while (cord->sol && j < i)
 		free(cord->sol[j++]);
 	free(cord->sol);
 	free(cord);
