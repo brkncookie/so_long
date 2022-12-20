@@ -6,7 +6,7 @@
 /*   By: mnadir <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/10 16:11:41 by mnadir            #+#    #+#             */
-/*   Updated: 2022/12/17 14:07:41 by mnadir           ###   ########.fr       */
+/*   Updated: 2022/12/20 09:40:26 by mnadir           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 # include <mlx.h>
 # include "../ft_printf/ft_printf.h"
 # include "../mand/get_next_line.h"
+
 # define X_EVENT_KEY_PRESS		2
 # define X_EVENT_DESTROY		17
 # define KEY_ESC				53
@@ -70,6 +71,7 @@ typedef struct s_drw
 	int		dems;
 
 }	t_drw;
+
 t_cord	*parassign(char *file);
 t_drw	*draw(t_cord *cord);
 int		validpath(t_cord *cord, t_cord tmp);
